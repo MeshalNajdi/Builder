@@ -1,0 +1,64 @@
+using System;
+
+namespace usingBuilder
+{
+    class Program
+    {
+        class ObjectPurchase
+        {
+            private string obj;
+
+            public ObjectPurchase()
+            {
+                this.obj = "";
+            }
+
+            public ObjectPurchase ObjectName(string objName)
+            {
+                this.obj += "the object you want is" + objName + " ";
+                return this;
+            }
+            public ObjectPurchase ObjectPrice(string objPrice)
+            {
+                this.obj += " its price is " + objPrice + " ";
+                return this;
+            }
+            public ObjectPurchase YourName(string Name)
+            {
+                this.obj += "Dont use your bag" + Name + "please !!";
+                return this;
+            }
+            public ObjectPurchase YourAdress(string Adress)
+            {
+                this.obj += "your adress" + Adress + "is in the list";
+                return this;
+            }
+            public ObjectPurchase CompanyName(string cmpName)
+            {
+                this.obj += "the company providing the object is " + cmpName + " ";
+                return this;
+            }
+
+            public string info()
+            {
+                return this.obj;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+
+
+            // method chaining 
+            ObjectPurchase object1 = new ObjectPurchase();
+            string objInfo = object1.ObjectName("fa")
+                .ObjectPrice("20")
+                .YourName("Mes")
+                .YourAdress("Riyadh")
+                .CompanyName("Amazon").info();
+            Console.WriteLine(" \n\n" + object1);
+
+        }
+       
+    }
+}
